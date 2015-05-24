@@ -1,0 +1,20 @@
+.zoom {
+			displayinline-block;
+			position relative;
+		}
+		
+		 magnifying glass icon 
+		.zoomafter {
+			content'';
+			displayblock; 
+			width33px; 
+			height33px; 
+			positionabsolute; 
+			top0;
+			right0;
+			backgroundurl(../img/icon.png);
+		}
+
+		.zoom img {
+			display block;
+		}

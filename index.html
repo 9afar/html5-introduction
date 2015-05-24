@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>HTML 5</title>
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+	<link rel="stylesheet" href="lib/css/zoom.css">
+	<link rel="stylesheet" href="lib/PhotoSwipe/photoswipe.css">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<script src="lib/js/jquery-2.1.1.min.js"></script>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<img src="img/logo.png" style="margin-bottom:30px;"/>
+					<h1>HTML 5</h1>
+					<h3>Introduction</h3>
+					<p>
+						<small>BY Mohammed Alsaffar / <a href="mailto:m.9afar@gmail.com">m.9afar@gmail</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Table Of Contents</h2>
+					<br/>
+					<ul>
+						<li><a href="#/Elementsemoved">Elements Removed in HTML5</a></li>
+						<li><a href="#/WhatsNew">What’s New</a></li>
+						<li><a href="#/WebGL">WebGL Demo</a></li>
+						<li><a href="#/coolfeatures">Other Cool Features</a></li>
+						<li><a href="#/Resources">Resources</a></li>
+					</ul>
+				</section>
+
+				<section id="Elementsemoved">
+					<h3>Elements Removed from HTML5</h3>
+					<br/>
+					<table style="width:700px;margin: 0 auto"> 
+						<thead>
+							<tr>
+								<th>Element</th>
+								<th>Use instead</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td>&lt;acronym&gt;</td><td>&lt;abbr&gt;</td></tr>
+							<tr style="color:red"><td>&lt;applet&gt;</td><td>&lt;object&gt;</td></tr>
+							<tr><td>&lt;basefont&gt;</td><td>CSS</td></tr>
+							<tr><td>&lt;big&gt;</td><td>CSS</td></tr>
+							<tr style="color:red"><td>&lt;center&gt;</td><td>CSS</td></tr>
+							<tr><td>&lt;dir&gt;</td><td>&lt;ul&gt;</td></tr>
+							<tr><td>&lt;font&gt;</td><td>CSS</td></tr>
+							<tr style="color:red"><td>&lt;frame&gt;</td><td></td></tr>
+							<tr style="color:red"><td>&lt;frameset&gt;</td><td></td></tr>
+							<tr><td>&lt;noframes&gt;</td><td></td></tr>
+							<tr><td>&lt;strike&gt;</td><td>CSS</td></tr>
+							<tr><td>&lt;tt&gt;</td><td>CSS</td></tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section id="WhatsNew">
+					<section>
+						<h2>What’s New</h2>
+						<img src="img/html5-areas.png" style="margin-top:35px;width:650px"/>
+					</section>
+					<section data-background="#fff">
+						<h2>What’s New</h2>
+						<img src="img/html5-mindmap.png" id="html5features" style="margin:20px auto 0 auto;width:700px;cursor:zoom-in"/>
+					</section>
+					<section>
+						<h2>New Input Types</h2>
+						<h4>Color</h4>
+
+						<div id="ColorCodeResult">
+							<datalist id="colordatalist">
+								<option>#B34EE9</option>
+								<option>#78349D</option>
+								<option>#502368</option>
+								<option>#341744</option>
+								<option>#A01744</option>
+							</datalist>
+							<input type="color" list="colordatalist">
+						</div>
+
+						<pre><code contenteditable id="ColorCode">
+<datalist id="colordatalist">
+		<option>#B34EE9</option>
+		<option>#78349D</option>
+		<option>#502368</option>
+		<option>#341744</option>
+		<option>#A01744</option>
+</datalist>
+
+<input type="color" list="colordatalist">
+						</code></pre>
+						<script type="text/javascript">
+							$('#ColorCode').on('input',function () {
+								$('#ColorCodeResult').html($('#ColorCode').text());
+							});
+						</script>
+					</section>
+					<section>
+						<h2>New Input Types</h2>
+						<h4>Date & Date Time</h4>
+						<div id="DateCodeResult">
+							<input type="date">
+							<input type="datetime-local">
+							<input type="month">
+							<input type="week">
+						</div>
+
+						<pre><code contenteditable id="DateCode">
+							<input type="date">
+							<input type="datetime-local">
+							<input type="month">
+							<input type="week">
+						</code></pre>
+						<script type="text/javascript">
+							$('#DateCode').on('input',function () {
+								$('#DateCodeResult').html($('#DateCode').text());
+							});
+						</script>						
+					</section>
+
+					<section>
+						<h2>New Input Types</h2>
+						<h4>Range</h4>
+
+						<div id="RangeCodeResult">
+							<div id="RangeValue">50</div>
+
+							<input type="range" min="0" max="100">
+
+							<script type="text/javascript">
+								$('input[type=range]').on('input',function(){
+									var value = $(this).val();
+									$('#RangeValue').text( value );
+								});
+							</script>
+						</div>
+
+						<pre><code contenteditable id="RangeCode">
+<div id="RangeValue">50</div>
+
+<input type="range" min="0" max="100">
+
+<script type="text/javascript">
+		$('input[type=range]').on('input',function(){
+				    var value = $(this).val();
+				    $('#RangeValue').text( value );
+		});
+</script>
+						</code></pre>
+						<script type="text/javascript">
+							$('#RangeCode').on('input',function () {
+								$('#RangeCodeResult').html($('#RangeCode').text());
+							});
+						</script>
+					</section>
+
+					<section>
+						<h2>New APIs</h2>
+						<h4>Geolocation</h4>
+						<div id="LocationResult" style="height:100px;">
+							
+						</div>
+						<div id="GeolocationCodeResult">
+<script>
+	function getLocation() {
+		if (navigator.geolocation) {
+		    navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+		    $('#LocationResult').text("Geolocation is not supported by this browser.");
+		}
+	}
+
+	function showPosition(position) {
+		    var c = position.coords;
+		    $('#LocationResult').html('Latitude: '+ c.latitude +"<br>Longitude: " + c.longitude; );
+	}
+</script>
+						</div>
+						<pre><code contenteditable id="GeolocationCode">
+							<script>
+								function getLocation() {
+									if (navigator.geolocation) {
+										navigator.geolocation.getCurrentPosition(showPosition);
+									} else {
+										$('#LocationResult').text("Geolocation is not supported by this browser.");
+									}
+								}
+
+								function showPosition(position) {
+									var c = position.coords;
+									$('#LocationResult').html('Latitude: '+ c.latitude +"<br>Longitude: " + c.longitude; );
+								}
+							</script>
+						</code></pre>
+						<script type="text/javascript">
+							$('#GeolocationCode').on('input',function () {
+								$('#GeolocationCodeResult').html($('#GeolocationCode').text());
+							});
+						</script>
+					</section>
+
+					<section>
+						<h2>New APIs</h2>
+						<h4>Local Storage</h4>
+
+						<div id="StorageCodeResult">
+							<input type="text" id="MyValue">
+							<script type="text/javascript">
+								// Retrieve
+								$('#MyValue').val(localStorage.MyValue);
+
+								$('#MyValue').on('input',function(){
+									// Store
+									localStorage.MyValue = $(this).val();
+								});
+							</script>
+						</div>
+						<style type="text/css">
+							#MyValue{
+								height: 25px;
+								padding: 5px;
+								border-radius: 10px;
+								outline: none;
+							}
+						</style>
+						<pre><code contenteditable id="StorageCode">
+							<input type="text" id="MyValue">
+							<script type="text/javascript">
+								// Retrieve
+								$('#MyValue').val(localStorage.MyValue);
+
+								$('#MyValue').on('input',function(){
+									// Store
+									localStorage.MyValue = $(this).val();
+								});
+							</script>
+						</code></pre>
+
+						<script type="text/javascript">
+							$('#StorageCode').on('input',function () {
+								$('#StorageCodeResult').html($('#StorageCode').text());
+							});
+						</script>
+					</section>
+				</section>
+
+				<section data-background="#000" id="WebGL">
+					<h4 style="color:#fff">WebGL Demo</h4>
+					<div id="DemoSlide" style="width:1000px;height:600px;"></div>
+					<a href="http://madebyevan.com/webgl-water/">http://madebyevan.com/webgl-water/</a>
+				</section>
+
+				<section id="coolfeatures">
+					<h2>Other Cool Features</h2>
+					<ol>
+						<li class="fragment roll-in"><a href="http://www.w3schools.com/tags/att_input_required.asp">Required Attribute</a></li>
+						<li class="fragment roll-in"><a href="http://www.w3schools.com/tags/att_input_pattern.asp">pattern Attribute (Regular Expressions)</a></li>
+						<li class="fragment roll-in"><a href="https://developer.mozilla.org/en-US/docs/WebSockets">WebSockets</a></li>
+						<li class="fragment roll-in"><a href="http://www.w3schools.com/html/html5_webworkers.asp">Web Workers</a></li>
+						<li class="fragment roll-in"><a href="https://developer.mozilla.org/en/docs/Web/API/notification">Notifications</a></li>
+						<li class="fragment roll-in"><a href="http://www.w3schools.com/html/html5_app_cache.asp">Application Cache</a></li>
+					</ol>
+				</section>
+
+				<section id="Resources">
+					<h2>Resources</h2>
+					<ol>
+						<li><a href="http://html5please.com/">www.html5please.com</a></li>
+						<li><a href="http://www.html5rocks.com/en/">www.html5rocks.com</a></li>
+						<li><a href="http://www.webplatform.org/">www.webplatform.org</a></li>
+					</ol>
+				</section>
+
+				<section>
+					<h1>THE END</h1>
+				</section>
+
+			</div>
+
+		</div>
+
+		<!-- Root element of PhotoSwipe. Must have class pswp. -->
+		<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+    It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+        PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <div class="pswp__container">
+        	<!-- don't modify these 3 pswp__item elements, data is added later on -->
+        	<div class="pswp__item"></div>
+        	<div class="pswp__item"></div>
+        	<div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+        	<div class="pswp__top-bar">
+
+        		<!--  Controls are self-explanatory. Order can be changed. -->
+
+        		<div class="pswp__counter"></div>
+        		<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        		<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        		<div class="pswp__preloader">
+        			<div class="pswp__preloader__icn">
+        				<div class="pswp__preloader__cut">
+        					<div class="pswp__preloader__donut"></div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+
+        	<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+        	</button>
+
+        	<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+        	</button>
+
+        	<div class="pswp__caption">
+        		<div class="pswp__caption__center"></div>
+        	</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+<script src="lib/js/jquery.zoom.min.js"></script>
+<script src="lib/PhotoSwipe/photoswipe.min.js"></script>
+
+<script>
+	Reveal.initialize({
+		controls: true,
+		progress: true,
+		history: true,
+		center: true,
+
+		dependencies: [
+		{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+		]
+	});
+
+	var InDemo = false;
+	Reveal.addEventListener( 'slidechanged', function( event ) {
+		if (Reveal.getIndices().h == 4) {
+			InDemo = true;
+			$('#DemoSlide').html('<iframe src="http://madebyevan.com/webgl-water/" width="1000" height="600"></iframe>');
+		}else if(InDemo){
+			InDemo = false;
+			$('#DemoSlide').html('');
+		}
+	}, false );
+
+	function ZoomImage(items){
+		var gallery = new PhotoSwipe( 
+			document.querySelectorAll('.pswp')[0], 
+			PhotoSwipeUI_Default, 
+			items,
+			{history: false,});
+		gallery.init();
+	}
+
+	$(document).ready(function(){
+		
+		$('#html5features').click(function(){
+			ZoomImage([{src: 'img/html5-mindmap.png',w: 1920,h: 1581}]);
+		});
+	});
+
+</script>
+
+</body>
+</html>
